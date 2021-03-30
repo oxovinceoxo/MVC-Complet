@@ -1,33 +1,57 @@
 <?php
 
 ?>
+
+
 <!--afficher les Administrateurs ------------------------------------------------------------------------------->
-<div>
-    <div class=" mb-2 bg-danger text-white"><h1 class="text-center p-1">liste des administrateurs</h1></div>
+        <div>
+            <div class=" mb-2 bg-danger text-white"><h1 class="text-center p-1">liste des administrateurs</h1></div>
 
 
-    <div class="row">
-        <?php
+                <?php
 
-        foreach ($table4 as $row) {
-            ?>
-            <div class="col-md-3 col-sm-12">
-
-                <h5>
+                foreach ($table4 as $row) {
+                    ?>
+                    <tr>
+                        <td><?php echo $row['email_admin']; ?></td>
+                        <td><a href="#" class="btn btn-danger">Supprimer</a></td>
+                    </tr>
                     <?php
-                    echo $row['email_admin'];
-                    ?></h5>
+                }
+                ?>
 
-                    <a href="#" class="btn btn-danger">Supprimer</a>
-            </div>
+        </div>
 
-            <?php
 
-        }
+                <!--ajouter un Administrateurs ------------------------------------------------------------------------------->
+                        <div class=" mb-2 bg-dark text-white mt-5 " style="width: 30%"><h4>Ajouter un Administrateur</h4></div>
 
-        ?>
-    </div>
-</div>
+
+                        <!-- formulaire pour rajouter un administrateur --->
+                        <form method="post">
+
+                            <label for="titre">Email Administrateur</label>
+                            <input type="text" name="AjouterEmailAdmin">
+
+                            <label for="titre">password administrateur</label>
+                            <input type="text"  name="AjouterPasswordAdmin">
+
+
+
+                            <button class="btn btn-success" name="boutonAjouterAdmin" type="submit">Enregistrer l'Administrateur</button>
+                        </form>
+                            <?php
+
+                            if(isset($_POST["boutonAjouterAdmin"])){
+                                $form = true;
+                                    EnregistrerAdmin();
+
+                            }else{
+                                echo "merci de remplir tous les champs";
+                            }
+
+                            ?>
+
 
 
 <!--afficher les catégories --------------------------------------------------------------------------------------->
@@ -56,6 +80,36 @@
         ?>
     </div>
 </div>
+
+                        <!--ajouter une catégorie ------------------------------------------------------------------------------->
+                        <div class=" mb-2 bg-dark text-white mt-5 " style="width: 30%"><h4>Ajouter une catégorie</h4></div>
+
+                        <!-- formulaire pour rajouter une catégorie --->
+                        <form method="post">
+
+                            <label for="titre">Nom de la catégorie</label>
+                            <input type="text" name="AjouterCategorie">
+
+
+                            <button class="btn btn-success" name="boutonAjouterCategorie" type="submit">Enregistrer la categorie</button>
+                        </form>
+                        <?php
+                        $form = false;
+                        if(isset($_POST["boutonAjouterCategorie"])){
+                            $form = true;
+                            if($form){
+                                EnregistrerCategorie();
+                            }
+
+                        }else{
+                            echo "merci de remplir tous les champs";
+                        }
+
+                        ?>
+                                        <!--supprimer une catégorie ------------------------------------------------------------------------------->
+
+
+
 
 <!--afficher les utilisateur -------------------------------------------------------------------------------------->
 

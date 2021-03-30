@@ -1,8 +1,13 @@
 <?php
 require_once "../model/ClassDatabase.php";
 
+
 class ClassAdministrateur extends ClassDatabase
+
 {
+    private $email_admin;
+    private $password_admin;
+
     public function  Connexion(){
 
         $db = $this-> getPDO();
@@ -43,6 +48,8 @@ class ClassAdministrateur extends ClassDatabase
 
     }
 
+
+    /////////////////////////////////////////////////////////////////////////Class Afficher des elements////////////////////////////////////////////////////////////////////////////////////////////
     public function afficherUtilisateur(){
         $db = $this->getPDO();
         $sql = "SELECT * FROM utilisateurs";
@@ -57,7 +64,7 @@ class ClassAdministrateur extends ClassDatabase
         return $stmt;
     }
 
-    public function afficherToutescatégories(){
+    public function afficherToutescategories(){
         $db = $this->getPDO();
         $sql = "SELECT * FROM categories";
         $stmt = $db->query($sql);
@@ -65,12 +72,44 @@ class ClassAdministrateur extends ClassDatabase
 
     }
 
-
     public function afficherTousAdministrateurs(){
         $db = $this->getPDO();
         $sql = "SELECT * FROM administration";
         $stmt = $db->query($sql);
         return $stmt;
     }
+
+
+
+    /////////////////////////////////////////////////////////////////////////Class Créer des elements////////////////////////////////////////////////////////////////////////////////////////////
+
+    public function ajouterAdmin(){
+
+        $db = $this->getPDO();
+
+        $sql = "INSERT INTO administration (email_admin, password_admin) VALUES (?,?)";
+
+        $req = $db->prepare($sql);
+        $req->bindParam(1,$_POST['AjouterEmailAdmin']);
+        $req->bindParam(2, $_POST['AjouterPasswordAdmin']);
+        $res = $req->execute(array($_POST['AjouterEmailAdmin'], $_POST['AjouterPasswordAdmin']));
+        return $res;
+    }
+
+    public function ajouterCategorie(){
+
+        $db = $this->getPDO();
+        $type_categorie = $_POST['AjouterCategorie'];
+
+        $sql = "INSERT INTO `categories`(`type_categorie`) VALUES (?)";
+
+        $req = $db->prepare($sql);
+
+        $req->bindParam(1, $type_categorie);
+
+        $req->execute();
+    }
+
+    /////////////////////////////////////////////////////////////////////////Class Supprimer des elements////////////////////////////////////////////////////////////////////////////////////////////
 
 }
