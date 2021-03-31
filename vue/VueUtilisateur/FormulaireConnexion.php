@@ -20,6 +20,7 @@ $utilisateur = new ClassUtilisateur();
     </div>
 
     <button name="connexion" type="submit" class="btn btn-primary">Se connecter</button>
+
 </form>
 
 <?php
@@ -28,7 +29,5 @@ $utilisateur = new ClassUtilisateur();
 if (isset($_POST["connexion"])) {
 $admin->Connexion();
 $utilisateur->ConnexionUtilisateur();
-} else {
-
 }
 

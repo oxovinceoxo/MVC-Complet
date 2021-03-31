@@ -19,6 +19,7 @@ if ($url== ""){
 
 //routage
 if($url == "accueil"){
+    $title = "page d'accueil";
     AfficherFormulaireRecherche();
     AfficherLesAnnonces();
 
@@ -34,6 +35,7 @@ if($url == "accueil"){
 //formulaire d'inscription
 }elseif ($url == "formulaireInscription"){
     AfficherFormulaireInscription();
+
 
 
 //Page de déconnexionAdministrateur
@@ -53,8 +55,5 @@ if($url == "accueil"){
 
 
 }
-
-
-
 $content = ob_get_clean();
 require_once "template.php";

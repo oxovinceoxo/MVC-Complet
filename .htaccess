@@ -1,3 +1,0 @@
-RewriteEngine On
-RewriteRule ^(.*)$ vue/index.php?url=$1 [QSA]
-#RewriteRule ^([a-zA-Z0-9\-\_\/&]*)$ vue/index.php?url=$1

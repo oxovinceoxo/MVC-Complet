@@ -11,18 +11,6 @@ function AfficherlesAnnoncesUtilisateur(){
 
 
 
-function AfficherLesAnnonces(){
-    //instance de la class ClassAnnonces (requet sql)
-    $ListeAnnonces = new ClassAnnonces();
-    // appel de la méthode afficherToutesAnnonces
-    $res = $ListeAnnonces->afficherToutesAnnonces();
-    if ($res){
-        require_once "../vue/accueil.php";
-    }else {
-        die();
-    }
 
-
-}
 
 
