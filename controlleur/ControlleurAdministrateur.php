@@ -1,24 +1,35 @@
 <?php
 
 require_once "../model/CRUDAdministrateur/ClassAdministrateur.php";
+require_once "../model/CRUDAdministrateur/ClassUtilisateurs.php";
+require_once "../model/CRUDAdministrateur/ClassArticle.php";
+require_once "../model/CRUDAdministrateur/ClassCategories.php";
 
-/////////////////////////////////////////////////////////////////////////Controlleur Afficher des elements////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////Controleur Afficher des elements////////////////////////////////////////////////////////////////////////////////////////////
 
 function afficherTableAdmin(){
-    //instance de la ClassAfficherUtilisateurs
+    //instance de la ClassAdministrateur
     $tableAdmin = new ClassAdministrateur();
+    //instance de la ClassUtilisateurs
+    $tableUtilisateur = new ClassUtilisateurs();
+    //instance de la ClassArticle
+    $tableArticle = new ClassArticle();
+    //instance de la ClassCategories
+    $tableCategorie = new ClassCategories();
 
-    $table = $tableAdmin->afficherUtilisateur();
-    $table2 = $tableAdmin->afficherToutesAnnonces();
-    $table3 = $tableAdmin->afficherToutescategories();
+
+    $table = $tableUtilisateur->afficherUtilisateur();
+    $table2 = $tableArticle->afficherToutesAnnonces();
+    $table3 = $tableCategorie->afficherToutescategories();
     $table4 = $tableAdmin->afficherTousAdministrateurs();
+
     require_once "../vue/VueAdministrateur/accueilAdministrateur.php";
     //$Admin = $tableAdmin->ajouterAdmin();
 
 }
 
 
-/////////////////////////////////////////////////////////////////////////Controlleur Créer des elements////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////Controleur Créer des elements////////////////////////////////////////////////////////////////////////////////////////////
 
 function  EnregistrerAdmin(){
     //instance de la ClassAfficherUtilisateurs
@@ -29,13 +40,32 @@ function  EnregistrerAdmin(){
 }
 
 function EnregistrerCategorie(){
-    //instance de la ClassAfficherUtilisateurs
-    $tableAdmin = new ClassAdministrateur();
+    //instance de la ClassCategories
+    $tableAdmin = new ClassCategories();
     require_once "../vue/VueAdministrateur/accueilAdministrateur.php";
     $tableAdmin->ajouterCategorie();
     echo "<script>alert('la catégorie a bien été ajoutée')</script>";
 
 }
 
-///////////////////////////////////////////////////////////////////////// Controlleur Supprimer des elements////////////////////////////////////////////////////////////////////////////////////////////
+
+
+///////////////////////////////////////////////////////////////////////// Controleur Supprimer des elements////////////////////////////////////////////////////////////////////////////////////////////
+
+
+function SupAnnonce(){
+
+    $tableArticle = new ClassArticle();
+    $resultat=$tableArticle->detailAnnonce();
+    require_once "../vue/VueAdministrateur/ConfirmerSupprimerAnnonce.php";
+
+    if(isset($_POST["confirmerSup"])){
+        $tableAdmin = new ClassArticle();
+        $okSup=$tableAdmin->SupprimerAnnonce();
+        $okSup;
+        header("location:http://localhost/AnnonceMVC2/accueilAdministrateur");
+    }else{
+        echo "merci de remplir tous les champs";
+    }
+}
 

@@ -18,6 +18,7 @@
             ?>
             <a class="btn btn-danger" href="pageDeconnexion">deconexion</a>
             <a class="btn btn-info" href="accueil">recherche</a>
+            <a class="btn btn-success" href="accueilAdministrateur">Administrateur</a>
             <?php
 ////////////visiteur
         }else{

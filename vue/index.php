@@ -5,6 +5,7 @@ session_start();
     require_once "../controlleur/ControlleurVisiteur.php";
     require_once "../controlleur/ControlleurAdministrateur.php";
 
+
 //Verification de l'existance de la super globale $_GET[''] dans url
 
 if(isset($_GET['url'])){
@@ -16,25 +17,23 @@ if ($url== ""){
     $url = "accueil";
 }
 
-
-
 //routage
 if($url == "accueil"){
     AfficherFormulaireRecherche();
     AfficherLesAnnonces();
 
-}elseif ($url == "formulaireInscription"){
-    AfficherFormulaireInscription();
-
+//Page Administrateur
+}elseif ($url == "accueilAdministrateur" ){
+    afficherTableAdmin();
 
 
 //Connexion Admin ou Utilisateur
 }elseif ($url == "FormulaireConnexion"){
     AfficherFormulaireConnexion();
 
-//Page Administrateur
-}elseif ($url == "accueilAdministrateur" ){
-    afficherTableAdmin();
+//formulaire d'inscription
+}elseif ($url == "formulaireInscription"){
+    AfficherFormulaireInscription();
 
 
 //Page de déconnexionAdministrateur
@@ -46,6 +45,12 @@ if($url == "accueil"){
 }elseif ($url == "accueilUtilisateur") {
 
     AfficherLesAnnoncesUtilisateur();
+
+}elseif ($url == "ConfirmerSupprimerAnnonce" && isset($_GET['id_sup']) && $_GET['id_sup'] > 0){
+    SupAnnonce();
+
+
+
 
 }
 

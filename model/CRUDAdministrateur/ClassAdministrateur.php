@@ -49,28 +49,8 @@ class ClassAdministrateur extends ClassDatabase
     }
 
 
-    /////////////////////////////////////////////////////////////////////////Class Afficher des elements////////////////////////////////////////////////////////////////////////////////////////////
-    public function afficherUtilisateur(){
-        $db = $this->getPDO();
-        $sql = "SELECT * FROM utilisateurs";
-        $stmt = $db->query($sql);
-        return $stmt;
-    }
+    /////////////////////////////////////////////////////////////////////////Class Afficher Administrateur////////////////////////////////////////////////////////////////////////////////////////////
 
-    public function afficherToutesAnnonces(){
-        $db = $this->getPDO();
-        $sql = "SELECT * FROM articles";
-        $stmt = $db->query($sql);
-        return $stmt;
-    }
-
-    public function afficherToutescategories(){
-        $db = $this->getPDO();
-        $sql = "SELECT * FROM categories";
-        $stmt = $db->query($sql);
-        return $stmt;
-
-    }
 
     public function afficherTousAdministrateurs(){
         $db = $this->getPDO();
@@ -81,7 +61,7 @@ class ClassAdministrateur extends ClassDatabase
 
 
 
-    /////////////////////////////////////////////////////////////////////////Class Créer des elements////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////Class Créer un Utilisateur////////////////////////////////////////////////////////////////////////////////////////////
 
     public function ajouterAdmin(){
 
@@ -96,20 +76,10 @@ class ClassAdministrateur extends ClassDatabase
         return $res;
     }
 
-    public function ajouterCategorie(){
 
-        $db = $this->getPDO();
-        $type_categorie = $_POST['AjouterCategorie'];
-
-        $sql = "INSERT INTO `categories`(`type_categorie`) VALUES (?)";
-
-        $req = $db->prepare($sql);
-
-        $req->bindParam(1, $type_categorie);
-
-        $req->execute();
-    }
 
     /////////////////////////////////////////////////////////////////////////Class Supprimer des elements////////////////////////////////////////////////////////////////////////////////////////////
+
+
 
 }

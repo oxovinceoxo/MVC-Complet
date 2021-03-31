@@ -54,6 +54,7 @@
 
 
 
+
 <!--afficher les catégories --------------------------------------------------------------------------------------->
 <div>
     <div class=" mb-2 bg-success text-white"><h1 class="text-center p-1">liste des Catégories</h1></div>
@@ -106,7 +107,7 @@
                         }
 
                         ?>
-                                        <!--supprimer une catégorie ------------------------------------------------------------------------------->
+
 
 
 
@@ -163,7 +164,7 @@
                             <?php
                             echo $row['prix_article'] . " €";
                             ?></p>
-                        <a href="#" class="btn btn-danger">Supprimer</a>
+                        <a href="ConfirmerSupprimerAnnonce?id_sup=<?=$row['id_article']?>" class="btn btn-danger">Supprimer</a>
                     </div>
                 </div>
             </div>
