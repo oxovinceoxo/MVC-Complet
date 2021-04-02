@@ -69,3 +69,50 @@ function SupAnnonce(){
     }
 }
 
+function SupCategorie(){
+    $tableCategorie = new ClassCategories();
+    $resultat=$tableCategorie->detailCategorie();
+    require_once "../vue/VueAdministrateur/ConfirmerSupprimerCategorie.php";
+
+    if(isset($_POST["confirmerSupCat"])){
+        $tableAdmin = new ClassCategories();
+        $okSup=$tableCategorie->SupprimerCategorie();
+        $okSup;
+        header("location:http://localhost/AnnonceMVC2/accueilAdministrateur");
+    }else{
+        echo "merci de remplir tous les champs";
+    }
+
+}
+
+function SupUtilisateur(){
+    $tableUtilisateur = new ClassUtilisateurs();
+    $resultat=$tableUtilisateur->detailUtilisateur();
+    require_once "../vue/VueAdministrateur/ConfirmerSupprimerUtilisateur.php";
+
+    if(isset($_POST["confirmerSupUt"])){
+        $tableAdmin = new ClassUtilisateurs();
+        $okSup=$tableUtilisateur->SupprimerUtilisateur();
+        $okSup;
+        header("location:http://localhost/AnnonceMVC2/accueilAdministrateur");
+    }else{
+        echo "merci de remplir tous les champs";
+    }
+
+}
+
+function SupAdministrateur(){
+    $tableAdministrateur = new ClassAdministrateur();
+    $resultat=$tableAdministrateur->detailAdministrateur();
+    require_once "../vue/VueAdministrateur/ConfirmerSupprimerAdministrateur.php";
+
+    if(isset($_POST["confirmerSupAdm"])){
+        $tableAdmin = new ClassUtilisateurs();
+        $okSup=$tableAdministrateur->SupprimerAdministration();
+        $okSup;
+        header("location:http://localhost/AnnonceMVC2/accueilAdministrateur");
+    }else{
+        echo "merci de remplir tous les champs";
+    }
+
+}

@@ -1,19 +1,53 @@
 <?php
 require_once "../model/ClassAnnonces.php";
+require_once "../model/CRUDVisiteur/ClassInscription.php";
+
+require_once "../model/MailInscription.php";
 
 function AfficherFormulaireInscription (){
 
     require_once "../vue/VueVisiteur/formulaireInscription.php";
 }
 
+/////////////////////////////////////////////////////Inscription////////////////////////////////////////////////////////////////
+function Inscription(){
+    require_once "../vue/VueVisiteur/formulaireInscription.php";
+
+    if (isset($_POST['BoutonInscription'])){
+        $inscription = new MailInscription();
+        $EnvoiDuformulaire = $inscription->envoyerEmail();
+        $EnvoiDuformulaire;
+        ?>
+        <script>
+            alert('Vous allez recevoir un mail de confirmation. Merci de cliquer sur le lien ')
+        </script>
+        <?php
+    }
+}
+function validerInscription(){
+
+    require_once "../vue/VueVisiteur/validationInscription.php";
+
+    $validerInscription = new ClassInscription();
+    $EnregistrerInscription = $validerInscription->CréationUtilisateur();
+    $EnregistrerInscription;
+}
+
+
+
+
 function AfficherFormulaireRecherche (){
 
     require_once "../vue/formulaireRecherche.php";
 }
 
+
 function AfficherFormulaireConnexion (){
     require_once "../vue/VueUtilisateur/FormulaireConnexion.php";
+
+
 }
+
 function AfficherLesAnnonces(){
     //instance de la class ClassAnnonces (requet sql)
     $ListeAnnonces = new ClassAnnonces();

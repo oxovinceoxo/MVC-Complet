@@ -19,7 +19,7 @@ if ($url== ""){
 
 //routage
 if($url == "accueil"){
-    $title = "page d'accueil";
+    $title = "page accueil";
     AfficherFormulaireRecherche();
     AfficherLesAnnonces();
 
@@ -35,6 +35,8 @@ if($url == "accueil"){
 //formulaire d'inscription
 }elseif ($url == "formulaireInscription"){
     AfficherFormulaireInscription();
+    Inscription();
+
 
 
 
@@ -51,9 +53,21 @@ if($url == "accueil"){
 }elseif ($url == "ConfirmerSupprimerAnnonce" && isset($_GET['id_sup']) && $_GET['id_sup'] > 0){
     SupAnnonce();
 
+}elseif ($url == "ConfirmerSupprimerCategorie" && isset($_GET['id_sup']) && $_GET['id_sup'] > 0) {
+    SupCategorie();
+
+}elseif ($url == "ConfirmerSupprimerUtilisateur" && isset($_GET['id_sup']) && $_GET['id_sup'] > 0) {
+    SupUtilisateur();
+
+}elseif ($url == "ConfirmerSupprimerAdministrateur" && isset($_GET['id_sup']) && $_GET['id_sup'] > 0) {
+    SupAdministrateur();
 
 
-
+}elseif ($url == "validationInscription"){
+    validerInscription();
 }
+
+
+
 $content = ob_get_clean();
 require_once "template.php";

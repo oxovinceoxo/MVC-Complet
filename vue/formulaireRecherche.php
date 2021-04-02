@@ -2,6 +2,7 @@
 require_once "../model/LectureClé/LectureClé.php";
 $lecture= new LectureCle();
 ?>
+
 <form>
 
     <div class="form-group">

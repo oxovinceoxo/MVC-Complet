@@ -14,7 +14,7 @@
                     ?>
                     <tr>
                         <td><?php echo $row['email_admin']; ?></td>
-                        <td><a href="#" class="btn btn-danger">Supprimer</a></td>
+                        <td><a href="ConfirmerSupprimerAdministrateur?id_sup=<?=$row['id_admin']?>" class="btn btn-danger">Supprimer</a></td>
                     </tr>
                     <?php
                 }
@@ -71,11 +71,10 @@
                     ?></h5>
 
 
-                <a href="#" class="btn btn-danger">Supprimer</a>
+                <a href="ConfirmerSupprimerCategorie?id_sup=<?=$row['id_categorie']?>" class="btn btn-danger">Supprimer</a>
             </div>
 
             <?php
-
         }
 
         ?>
@@ -131,7 +130,7 @@
                             <?php
                             echo $row['email_utilisateur'];
                             ?></p>
-                        <a href="#" class="btn btn-danger">Supprimer</a>
+                        <a href="ConfirmerSupprimerUtilisateur?id_sup=<?=$row['id_utilisateur']?>" class="btn btn-danger">Supprimer</a>
                     </div>
 
             <?php
@@ -154,7 +153,7 @@
             ?>
             <div class="col-md-3 col-sm-12">
                 <div class="card">
-                    <img class="card-img-top" width="10%" src="~/<?php
+                    <img class="card-img-top" width="10%" src="<?php
                     echo $row['photo_article'];
                     ?>" alt="image de la carte">
                     <div class="card-body">

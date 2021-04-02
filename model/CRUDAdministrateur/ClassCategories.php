@@ -30,4 +30,31 @@ class ClassCategories extends ClassDatabase
         $req->execute();
     }
 
+    /////////////////////////////////////////////////////////////////////////Class detail Categorie////////////////////////////////////////////////////////////////////////////////////////////
+
+    public function detailCategorie(){
+        $db = $this->getPDO();
+        $id = $_GET['id_sup'];
+        $sql = "SELECT * FROM categories WHERE id_categorie = ?";
+        $requete_insertion = $db->prepare($sql);
+
+        $requete_insertion->bindParam(1, $id);
+
+        $requete_insertion->execute();
+
+        return $requete_insertion->fetch();
+
+    }
+/////////////////////////////////////////////////////////////////////////Class supprimer Categorie////////////////////////////////////////////////////////////////////////////////////////////
+
+    public function SupprimerCategorie(){
+        $db = $this->getPDO();
+        $id = $_GET['id_sup'];
+        $sql = "DELETE FROM categories WHERE id_categorie = ?";
+        $requete_sup = $db->prepare($sql);
+
+        $requete_sup->execute(array($id));
+
+
+    }
 }
