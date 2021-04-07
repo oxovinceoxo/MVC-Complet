@@ -47,8 +47,9 @@ if($url == "accueil"){
 
 
 }elseif ($url == "accueilUtilisateur") {
-
     AfficherLesAnnoncesUtilisateur();
+
+
 
 }elseif ($url == "ConfirmerSupprimerAnnonce" && isset($_GET['id_sup']) && $_GET['id_sup'] > 0){
     SupAnnonce();
