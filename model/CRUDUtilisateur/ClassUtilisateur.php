@@ -27,6 +27,7 @@ class ClassUtilisateur extends ClassDatabase
                 $_SESSION['connecter_utilisateur'] = true;
                 $_SESSION['email_utilisateur'] = $row['email_utilisateur'];
                 $_SESSION['nom_utilisateur'] = $row['nom_utilisateur'];
+                $_SESSION['id_utilisateur'] = $row['id_utilisateur'];
 
                 header("location:http://localhost/AnnonceMVC2/accueilUtilisateur");
 

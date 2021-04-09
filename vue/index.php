@@ -24,7 +24,7 @@ if($url == "accueil"){
     AfficherLesAnnonces();
 
 //Page Administrateur
-}elseif ($url == "accueilAdministrateur" ){
+}elseif (isset($_SESSION['connecter_admin']) && $_SESSION['connecter_admin'] == true && $url == "accueilAdministrateur" ){
     afficherTableAdmin();
 
 
@@ -33,10 +33,22 @@ if($url == "accueil"){
     AfficherFormulaireConnexion();
 
 //formulaire d'inscription
-}elseif ($url == "formulaireInscription"){
+}elseif ($url == "formulaireInscription") {
     AfficherFormulaireInscription();
     Inscription();
 
+}elseif (isset($_SESSION['connecter_utilisateur']) && $_SESSION['connecter_utilisateur'] === true && $url === "formulaireCreerAnnonce"){
+
+    //Ajout annonce utilisateur
+
+    require_once "VueUtilisateur/formulaireCreerAnnonce.php";
+    $_POST['utilisateur_id'] = $_SESSION['id_utilisateur'];
+
+    if(isset($_POST['nom_article']) && isset($_POST['description_article']) && isset($_POST['prix_article']) && isset($_POST['photo_article']) && isset($_POST['categorie_id']) && isset($_SESSION['id_utilisateur']) && isset($_POST['region_id'])){
+        //ICI AJOUTER !empty
+        AjouterAnnonceUtilisateur($_POST['nom_article'], $_POST['description_article'], $_POST['prix_article'], $_POST['photo_article'], $_POST['categorie_id'],$_SESSION['id_utilisateur'], $_POST['region_id']);
+        header("Location: http://localhost/AnnonceMVC2/accueilUtilisateur");
+    }
 
 
 
@@ -46,7 +58,7 @@ if($url == "accueil"){
     require_once "../vue/VueAdministrateur/pageDeconnexion.php";
 
 
-}elseif ($url == "accueilUtilisateur") {
+}elseif(isset($_SESSION['connecter_utilisateur']) && $_SESSION['connecter_utilisateur'] == true && $url == "accueilUtilisateur") {
     AfficherLesAnnoncesUtilisateur();
 
 
@@ -66,6 +78,11 @@ if($url == "accueil"){
 
 }elseif ($url == "validationInscription"){
     validerInscription();
+
+    //Supprimer Annonce Utilisateur
+}elseif ($url == "supprimerAnnonce" && isset($_GET['id_supU']) && $_GET['id_supU'] > 0){
+    SupAnnonceUtilisateur();
+
 }
 
 

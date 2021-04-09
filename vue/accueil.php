@@ -10,7 +10,7 @@
             ?>
             <div class="col-md-3 col-sm-12">
                 <div class="card">
-                    <img class="card-img-top" width="10%" src=<?php echo $row['photo_article']; ?> alt="image de la carte" />
+                    <img class="card-img-top" width="10%" src=~/<?php echo $row['photo_article']; ?> alt="image de la carte" />
 
                     <div class="card-body">
                         <h5 class="card-title">
