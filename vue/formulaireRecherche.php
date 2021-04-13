@@ -3,11 +3,11 @@ require_once "../model/LectureClé/LectureClé.php";
 $lecture= new LectureCle();
 ?>
 
-<form>
+<form  method="post">
 
     <div class="form-group">
         <label for="exampleFormControlSelect1">Cétégories</label>
-        <select class="form-control" id="exampleFormControlSelect1">
+        <select class="form-control" name="catRecherche" id="catRecherche">
             <option> </option>
             <?php
             $lecture->LectureCategorie();
@@ -16,7 +16,7 @@ $lecture= new LectureCle();
     </div>
     <div class="form-group">
         <label for="exampleFormControlSelect2">régions</label>
-        <select class="form-control" id="exampleFormControlSelect1">
+        <select class="form-control" name="regRecherche" id="regRecherche">
             <option> </option>
             <?php
             $lecture->LectureRegions();
@@ -24,7 +24,7 @@ $lecture= new LectureCle();
         </select>
     </div>
     <div class="text-center" >
-    <button type="submit" class="btn btn-success">rechercher</button>
+    <button type="submit" name="BoutonRecherche" class="btn btn-success">rechercher</button>
     </div>
 </form>
 

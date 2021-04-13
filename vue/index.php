@@ -20,7 +20,14 @@ if ($url== ""){
 //routage
 if($url == "accueil"){
     $title = "page accueil";
-    AfficherFormulaireRecherche();
+    require_once "../vue/formulaireRecherche.php";
+    if (isset($_POST['BoutonRecherche'])){
+        //var_dump("salut");
+        if (isset($_POST["catRecherche"])&& isset($_POST["regRecherche"])){
+            //var_dump($_POST["catRecherche"]);var_dump($_POST["regRecherche"]);
+            AfficherFormulaireRechercheCatReg($_POST["catRecherche"],$_POST["regRecherche"]);
+        }
+    }
     AfficherLesAnnonces();
 
 //Page Administrateur

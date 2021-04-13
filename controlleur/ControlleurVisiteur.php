@@ -1,6 +1,7 @@
 <?php
 require_once "../model/ClassAnnonces.php";
 require_once "../model/CRUDVisiteur/ClassInscription.php";
+require_once "../model/CRUDVisiteur/recherche.php";
 
 require_once "../model/MailInscription.php";
 
@@ -35,10 +36,16 @@ function validerInscription(){
 
 
 
+function AfficherFormulaireRechercheCatReg ($id_region,$id_categorie){
 
-function AfficherFormulaireRecherche (){
+    $recherche = new recherche();
+    $CatReg = $recherche->rechercherAnnonceCatReg($id_region,$id_categorie);
+    if ($CatReg){
+require_once "../vue/resultatRecherche.php";
+    }else {
+        echo "pas de resultat pour cette region et cette categorie";
+    }
 
-    require_once "../vue/formulaireRecherche.php";
 }
 
 

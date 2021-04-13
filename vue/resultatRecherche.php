@@ -2,11 +2,11 @@
 
 ?>
 <div class="contenuAccueil">
-    <h1 class="text-center text-info">liste de toutes les annonces</h1>
+    <h1 class="text-center text-info">résultat filtre</h1>
     <div class="row">
         <?php
 
-        foreach ($res as $row) {
+        foreach ($CatReg as $row) {
             ?>
             <div class="col-md-3 col-sm-12">
                 <div class="card">

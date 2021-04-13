@@ -20,7 +20,8 @@
             //////////administrateur
             }elseif(isset($_SESSION['connecter_admin']) && $_SESSION['connecter_admin'] == true) {
                 ?>
-                <a class="btn btn-danger" href="pageDeconnexion">deconnexion</a>
+
+                <a class="btn btn-danger" href="pageDeconnexion"><img src="assets/img/deconnexion.png"></a>
                 <a class="btn btn-success" href="accueilAdministrateur">Administrateur</a>
 
                 <a style="display:none" href=""></a>
