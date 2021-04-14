@@ -4,6 +4,7 @@ session_start();
     require_once "../controlleur/ControlleurUtilisateur.php";
     require_once "../controlleur/ControlleurVisiteur.php";
     require_once "../controlleur/ControlleurAdministrateur.php";
+    require_once "../controlleur/ControlleurRegions.php";
 
 
 //Verification de l'existance de la super globale $_GET[''] dans url
@@ -90,6 +91,11 @@ if($url == "accueil"){
 }elseif ($url == "supprimerAnnonce" && isset($_GET['id_supU']) && $_GET['id_supU'] > 0){
     SupAnnonceUtilisateur();
 
+}elseif ($url == "region"){
+    require_once "../vue/formulaireRecherche.php";
+    $title = "CarteDeFrance";
+    $id = $_GET['id'];
+    CarteAnnonce($_GET['id']);
 }
 
 

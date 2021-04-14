@@ -1,5 +1,6 @@
 <?php
 require_once "ClassDatabase.php";
+
 class ClassAnnonces extends ClassDatabase
 {
     private $id_annonce;

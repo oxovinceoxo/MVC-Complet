@@ -1,6 +1,17 @@
 <?php
 
 ?>
+
+<!--CARTE DE FRANCE ET RECHERCHE PAR REGION -->
+<div class="container-fluid text-center mt-3">
+
+    <link rel="stylesheet" href="assets/map/cmap/style.css">
+    <script src="assets/map/cmap/jquery-1.11.1.min.js"></script>
+    <script src="assets/map/cmap/France-map.js"></script>
+    <script>francefree();</script>
+</div>
+
+
 <div class="contenuAccueil">
     <h1 class="text-center text-info">liste de toutes les annonces</h1>
     <div class="row">

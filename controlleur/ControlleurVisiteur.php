@@ -56,7 +56,7 @@ function AfficherFormulaireConnexion (){
 }
 
 function AfficherLesAnnonces(){
-    //instance de la class ClassAnnonces (requet sql)
+    //nouvelle instance de la class ClassAnnonces (requet sql)
     $ListeAnnonces = new ClassAnnonces();
     // appel de la méthode afficherToutesAnnonces
     $res = $ListeAnnonces->afficherToutesAnnonces();
