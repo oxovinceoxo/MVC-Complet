@@ -3,7 +3,7 @@
 ?>
 
 <!--CARTE DE FRANCE ET RECHERCHE PAR REGION -->
-<div class="container-fluid text-center mt-3">
+<div class="container-fluid text-center mt-3 mb-5 pb-3">
 
     <link rel="stylesheet" href="assets/map/cmap/style.css">
     <script src="assets/map/cmap/jquery-1.11.1.min.js"></script>
@@ -28,7 +28,8 @@
                             <?php echo $row['nom_article']; ?></h5>
                         <p class="card-text">
                             <?php echo $row['prix_article'] . " €"; ?></p>
-                        <a href="#" class="btn btn-primary">Acheter</a>
+                            <?php echo $row['region_id'] ?></p>
+                        <a href="detailAnnonce?id_det=<?=$row['id_article']?>" class="btn btn-primary">Acheter</a>
                     </div>
                 </div>
             </div>

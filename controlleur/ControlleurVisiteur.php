@@ -61,6 +61,16 @@ function AfficherLesAnnonces(){
     // appel de la méthode afficherToutesAnnonces
     $res = $ListeAnnonces->afficherToutesAnnonces();
 
-        require_once "../vue/accueil.php";
+    require_once "../vue/accueil.php";
+
+}
+
+function detailAnnonceVisiteur(){
+    //nouvelle instance de la class recherche (requet sql)
+    $Annoncedet = new recherche();
+    // appel de la méthode detailAnnonceVisiteur
+    $resultat=$Annoncedet->detailAnnonceVisiteur();
+
+    require_once "../vue/VueVisiteur/detailAnnonce.php";
 
 }

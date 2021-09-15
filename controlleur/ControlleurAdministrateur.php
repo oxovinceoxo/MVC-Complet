@@ -1,4 +1,4 @@
-<?php
+0<?php
 
 require_once "../model/CRUDAdministrateur/ClassAdministrateur.php";
 require_once "../model/CRUDAdministrateur/ClassUtilisateurs.php";

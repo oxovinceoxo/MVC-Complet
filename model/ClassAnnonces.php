@@ -11,8 +11,9 @@ class ClassAnnonces extends ClassDatabase
 
     public function afficherToutesAnnonces(){
         $db = $this->getPDO();
-        $sql = "SELECT * FROM articles";
-        $stmt = $db->query($sql);
-        return $stmt;
+        $sql = "SELECT * FROM articles ";
+        $res= $db->query($sql);
+
+        return $res;
     }
 }

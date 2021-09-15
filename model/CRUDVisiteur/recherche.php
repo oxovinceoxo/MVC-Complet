@@ -21,5 +21,22 @@ class recherche extends ClassDatabase
         return $resultsCR;
     }
 
+    ///////////////////////detail d'une annonce/////////////////////////////////
+
+    public function detailAnnonceVisiteur(){
+        $db = $this->getPDO();
+        $id = $_GET['id_det'];
+        /// inner join pour appeler la clé étrangère ///
+        $sql = "SELECT *  FROM articles  INNER JOIN regions ON articles.region_id = regions.id_regions WHERE region_id = ?";
+        $requete_insertion = $db->prepare($sql);
+
+        $requete_insertion->bindParam(1, $id);
+
+        $requete_insertion->execute();
+
+        return $requete_insertion->fetch();
+
+    }
+
 
 }

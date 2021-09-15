@@ -31,6 +31,7 @@ if($url == "accueil"){
     }
     AfficherLesAnnonces();
 
+
 //Page Administrateur
 }elseif (isset($_SESSION['connecter_admin']) && $_SESSION['connecter_admin'] == true && $url == "accueilAdministrateur" ){
     afficherTableAdmin();
@@ -96,9 +97,12 @@ if($url == "accueil"){
     $title = "CarteDeFrance";
     $id = $_GET['id'];
     CarteAnnonce($_GET['id']);
+
+
+}elseif ($url == "detailAnnonce" && isset($_GET['id_det']) && $_GET['id_det'] > 0) {
+    detailAnnonceVisiteur();
+
 }
-
-
 
 $content = ob_get_clean();
 require_once "template.php";
